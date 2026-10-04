@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Birds Through My Lens</title>
+  <meta name="description" content="Exploring the beauty of birds around the world through photography.">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f7f7f2;
+      color: #1d261d;
+      line-height: 1.6;
+    }
+
+    /* =========================
+       HEADER
+    ========================= */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #e4e6df;
+    }
+
+    .nav {
+      max-width: 1250px;
+      margin: auto;
+      height: 78px;
+      padding: 0 25px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: #1b2d1c;
+    }
+
+    .logo-bird {
+      font-size: 38px;
+    }
+
+    .logo-text {
+      line-height: 1;
+    }
+
+    .logo-title {
+      font-family: Georgia, serif;
+      font-size: 25px;
+      font-style: italic;
+      font-weight: bold;
+    }
+
+    .logo-subtitle {
+      font-size: 13px;
+      letter-spacing: 2px;
+      margin-top: 4px;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 27px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #263026;
+      font-size: 15px;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      color: #657f38;
+    }
+
+    .search-box {
+      border: 1px solid #d8dcd3;
+      border-radius: 30px;
+      padding: 9px 16px;
+      width: 180px;
+      outline: none;
+      background: #fff;
+    }
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero {
+      min-height: 570px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+
+      background:
+        linear-gradient(
+          90deg,
+          rgba(10, 25, 8, 0.90) 0%,
+          rgba(10, 25, 8, 0.68) 43%,
+          rgba(10, 25, 8, 0.18) 75%
+        ),
+        url("https://images.unsplash.com/photo-1444464666168-49d633b86797?auto=format&fit=crop&w=1800&q=85");
+
+      background-size: cover;
+      background-position: center;
+    }
+
+    .hero-content {
+      max-width: 1250px;
+      width: 100%;
+      margin: auto;
+      padding: 70px 25px;
+      color: white;
+    }
+
+    .hero-content small {
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      opacity: 0.9;
+    }
+
+    .hero h1 {
+      font-family: Georgia, serif;
+      font-size: clamp(50px, 7vw, 88px);
+      line-height: 0.95;
+      font-style: italic;
+      margin: 18px 0 8px;
+    }
+
+    .hero h2 {
+      font-size: clamp(28px, 4vw, 48px);
+      font-weight: 400;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      max-width: 550px;
+      font-size: 20px;
+      color: #f2f4ec;
+      margin-bottom: 30px;
+    }
+
+    .hero-button {
+      display: inline-block;
+      background: #829c4c;
+      color: white;
+      text-decoration: none;
+      padding: 14px 27px;
+      border-radius: 30px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .hero-button:hover {
+      background: #668137;
+      transform: translateY(-2px);
+    }
+
+    .hero-quote {
+      position: absolute;
+      right: 5%;
+      top: 50%;
+      transform: translateY(-50%);
+      border-left: 1px solid rgba(255,255,255,0.6);
+      padding-left: 25px;
+      color: white;
+      font-family: Georgia, serif;
+      letter-spacing: 3px;
+      font-size: 17px;
+      line-height: 2;
+    }
+
+    /* =========================
+       COMMON SECTION
+    ========================= */
+
+    section {
+      padding: 75px 25px;
+    }
+
+    .container {
+      max-width: 1250px;
+      margin: auto;
+    }
+
+    .section-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 30px;
+      margin-bottom: 30px;
+    }
+
+    .section-heading h2 {
+      font-family: Georgia, serif;
+      font-size: 43px;
+      color: #172217;
+    }
+
+    .section-heading p {
+      max-width: 500px;
+      color: #687066;
+    }
+
+    .underline {
+      width: 45px;
+      height: 3px;
+      background: #718c43;
+      margin-top: 10px;
+    }
+
+    /* =========================
+       FILTERS
+    ========================= */
+
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 30px;
+    }
+
+    .filter-btn {
+      border: none;
+      padding: 10px 20px;
+      border-radius: 25px;
+      background: #e9ebe5;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .filter-btn.active,
+    .filter-btn:hover {
+      background: #718c43;
+      color: white;
+    }
+
+    /* =========================
+       BIRD GRID
+    ========================= */
+
+    .bird-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .bird-card {
+      background: white;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 7px 25px rgba(30, 45, 25, 0.08);
+      transition: 0.3s;
+    }
+
+    .bird-card:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 14px 35px rgba(30, 45, 25, 0.15);
+    }
+
+    .bird-image {
+      height: 280px;
+      overflow: hidden;
+    }
+
+    .bird-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s;
+    }
+
+    .bird-card:hover img {
+      transform: scale(1.06);
+    }
+
+    .bird-info {
+      padding: 20px;
+    }
+
+    .bird-location {
+      color: #718c43;
+      font-size: 13px;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .bird-info h3 {
+      font-family: Georgia, serif;
+      font-size: 25px;
+      margin-bottom: 5px;
+    }
+
+    .scientific {
+      font-style: italic;
+      color: #737b72;
+      font-size: 14px;
+    }
+
+    .bird-info p {
+      color: #60685f;
+      font-size: 14px;
+      margin-top: 12px;
+    }
+
+    /* =========================
+       ABOUT
+    ========================= */
+
+    .about {
+      background: #e9eee3;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .about h2 {
+      font-family: Georgia, serif;
+      font-size: 45px;
+      margin-bottom: 18px;
+    }
+
+    .about p {
+      color: #566054;
+      margin-bottom: 15px;
+    }
+
+    .about-image {
+      height: 450px;
+      border-radius: 18px;
+      overflow: hidden;
+    }
+
+    .about-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* =========================
+       LOCATIONS
+    ========================= */
+
+    .locations {
+      background: #fff;
+      text-align: center;
+    }
+
+    .location-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 14px;
+      margin-top: 30px;
+    }
+
+    .location {
+      padding: 13px 22px;
+      border: 1px solid #d9ddd4;
+      border-radius: 30px;
+      background: #fafbf8;
+    }
+
+    /* =========================
+       CONTACT
+    ========================= */
+
+    .contact {
+      text-align: center;
+      background: #172217;
+      color: white;
+    }
+
+    .contact h2 {
+      font-family: Georgia, serif;
+      font-size: 43px;
+      margin-bottom: 12px;
+    }
+
+    .contact p {
+      color: #cbd2c8;
+      max-width: 600px;
+      margin: auto auto 25px;
+    }
+
+    .contact a {
+      display: inline-block;
+      color: white;
+      text-decoration: none;
+      border: 1px solid #829c4c;
+      padding: 12px 25px;
+      border-radius: 30px;
+    }
+
+    .contact a:hover {
+      background: #829c4c;
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      background: #101710;
+      color: #8e988b;
+      text-align: center;
+      padding: 22px;
+      font-size: 13px;
+    }
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 900px) {
+
+      nav {
+        display: none;
+      }
+
+      .search-box {
+        display: none;
+      }
+
+      .hero {
+        min-height: 600px;
+      }
+
+      .hero-quote {
+        display: none;
+      }
+
+      .bird-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about-image {
+        height: 350px;
+      }
+    }
+
+    @media (max-width: 600px) {
+
+      .nav {
+        height: 68px;
+      }
+
+      .logo-title {
+        font-size: 21px;
+      }
+
+      .logo-subtitle {
+        font-size: 10px;
+      }
+
+      .logo-bird {
+        font-size: 30px;
+      }
+
+      .hero {
+        min-height: 570px;
+      }
+
+      .hero h1 {
+        font-size: 55px;
+      }
+
+      .hero h2 {
+        font-size: 28px;
+      }
+
+      .hero p {
+        font-size: 17px;
+      }
+
+      section {
+        padding: 55px 18px;
+      }
+
+      .section-heading {
+        display: block;
+      }
+
+      .section-heading h2 {
+        font-size: 36px;
+      }
+
+      .bird-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .bird-image {
+        height: 300px;
+      }
+
+      .about h2 {
+        font-size: 36px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =========================
+       HEADER
+  ========================== -->
+
+  <header>
+    <div class="nav">
+
+      <a href="#" class="logo">
+        <div class="logo-bird">🐦</div>
+
+        <div class="logo-text">
+          <div class="logo-title">Birds</div>
+          <div class="logo-subtitle">Through My Lens</div>
+        </div>
+      </a>
+
+      <nav>
+        <a href="#home">Home</a>
+        <a href="#gallery">Bird Gallery</a>
+        <a href="#locations">Locations</a>
+        <a href="#about">About Me</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <input
+        type="text"
+        id="search"
+        class="search-box"
+        placeholder="Search birds..."
+        onkeyup="searchBirds()"
+      >
+
+    </div>
+  </header>
+
+
+  <!-- =========================
+       HERO
+  ========================== -->
+
+  <section class="hero" id="home">
+
+    <div class="hero-content">
+
+      <small>Wildlife Photography</small>
+
+      <h1>Birds</h1>
+
+      <h2>Through My Lens</h2>
+
+      <p>
+        Exploring the beauty of birds around the world
+        through photography.
+      </p>
+
+      <a href="#gallery" class="hero-button">
+        Explore Birds →
+      </a>
+
+    </div>
+
+    <div class="hero-quote">
+      DIFFERENT PLACES<br>
+      DIFFERENT BIRDS<br>
+      SAME PASSION
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       GALLERY
+  ========================== -->
+
+  <section id="gallery">
+
+    <div class="container">
+
+      <div class="section-heading">
+
+        <div>
+          <h2>Explore Birds</h2>
+          <div class="underline"></div>
+        </div>
+
+        <p>
+          A collection of birds photographed in their
+          natural habitats across the world.
+        </p>
+
+      </div>
+
+
+      <div class="filters">
+
+        <button class="filter-btn active" onclick="filterBirds('all', this)">
+          All
+        </button>
+
+        <button class="filter-btn" onclick="filterBirds('Asia', this)">
+          Asia
+        </button>
+
+        <button class="filter-btn" onclick="filterBirds('Middle East', this)">
+          Middle East
+        </button>
+
+        <button class="filter-btn" onclick="filterBirds('Europe', this)">
+          Europe
+        </button>
+
+        <button class="filter-btn" onclick="filterBirds('Africa', this)">
+          Africa
+        </button>
+
+        <button class="filter-btn" onclick="filterBirds('Americas', this)">
+          Americas
+        </button>
+
+        <button class="filter-btn" onclick="filterBirds('Australia', this)">
+          Australia
+        </button>
+
+      </div>
+
+
+      <div class="bird-grid">
+
+
+        <!-- BIRD 1 -->
+
+        <article class="bird-card" data-region="Asia">
+
+          <div class="bird-image">
+            <img
+              src="https://images.unsplash.com/photo-1555169062-013468b47731?auto=format&fit=crop&w=900&q=85"
+              alt="Bird photographed in India"
+            >
+          </div>
+
+          <div class="bird-info">
+
+            <div class="bird-location">
+              📍 India
+            </div>
+
+            <h3>Indian Roller</h3>
+
+            <div class="scientific">
+              Coracias benghalensis
+            </div>
+
+            <p>
+              A colourful bird found across open landscapes,
+              grasslands and agricultural areas.
+            </p>
+
+          </div>
+
+        </article>
+
+
+        <!-- BIRD 2 -->
+
+        <article class="bird-card" data-region="Middle East">
+
+          <div class="bird-image">
+            <img
+              src="https://images.unsplash.com/photo-1486365227551-f3f90034a57c?auto=format&fit=crop&w=900&q=85"
+              alt="Bird photographed in UAE"
+            >
+          </div>
+
+          <div class="bird-info">
+
+            <div class="bird-location">
+              📍 UAE
+            </div>
+
+            <h3>White-throated Kingfisher</h3>
+
+            <div class="scientific">
+              Halcyon smyrnensis
+            </div>
+
+            <p>
+              A striking kingfisher recognised by its bright
+              blue wings, brown head and white throat.
+            </p>
+
+          </div>
+
+        </article>
+
+
+        <!-- BIRD 3 -->
+
+        <article class="bird-card" data-region="Asia">
+
+          <div class="bird-image">
+            <img
+              src="https://images.unsplash.com/photo-1444464666168-49d633b86797?auto=format&fit=crop&w=900&q=85"
+              alt="Bird photographed in Sri Lanka"
+            >
+          </div>
+
+          <div class="bird-info">
+
+            <div class="bird-location">
+              📍 Sri Lanka
+            </div>
+
+            <h3>Green Bee-eater</h3>
+
+            <div class="scientific">
+              Merops orientalis
+            </div>
+
+            <p>
+              A small colourful bird that feeds mainly on
+              flying insects and bees.
+            </p>
+
+          </div>
+
+        </article>
+
+
+        <!-- BIRD 4 -->
+
+        <article class="bird-card" data-region="Asia">
+
+          <div class="bird-image">
+            <img
+              src="https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&w=900&q=85"
+              alt="Bird photographed in Asia"
+            >
+          </div>
+
+          <div class="bird-info">
+
+            <div class="bird-location">
+              📍 India
+            </div>
+
+            <h3>Asian Paradise Flycatcher</h3>
+
+            <div class="scientific">
+              Terpsiphone paradisi
+            </div>
+
+            <p>
+              A beautiful forest bird famous for its elegant
+              appearance and long flowing tail.
+            </p>
+
+          </div>
+
+        </article>
+
+
+        <!-- BIRD 5 -->
+
+        <article class="bird-card" data-region="Asia">
+
+          <div class="bird-image">
+            <img
+              src="https://images.unsplash.com/photo-1504198453319-5ce911bafcde?auto=format&fit=crop&w=900&q=85"
+              alt="Bird photographed in Thailand"
+            >
+          </div>
+
+          <div class="bird-info">
+
+            <div class="bird-location">
+              📍 Thailand
+            </div>
+
+            <h3>Oriental White-eye</h3>
+
+            <div class="scientific">
+              Zosterops palpebrosus
+            </div>
+
+            <p>
+              A small active bird with a distinctive white
+              ring around its eye.
+            </p>
+
+          </div>
+
+        </article>
+
+
+        <!-- BIRD 6 -->
+
+        <article class="bird-card" data-region="Asia">
+
+          <div class="bird-image">
+            <img
+              src="https://images.unsplash.com/photo-1508165093925-7f6e9c4c3b7c?auto=format&fit=crop&w=900&q=85"
+              alt="Bird photographed in Malaysia"
+            >
+          </div>
+
+          <div class="bird-info">
+
+            <div class="bird-location">
+              📍 Malaysia
+            </div>
+
+            <h3>Red-whiskered Bulbul</h3>
+
+            <div class="scientific">
+              Pycnonotus jocosus
+            </div>
+
+            <p>
+              A distinctive songbird known for its crest,
+              red cheek patch and lively behaviour.
+            </p>
+
+          </div>
+
+        </article>
+
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       ABOUT
+  ========================== -->
+
+  <section class="about" id="about">
+
+    <div class="container">
+
+      <div class="about-grid">
+
+        <div>
+
+          <h2>About My Journey</h2>
+
+          <div class="underline"></div>
+
+          <p>
+            Birds Through My Lens is a personal collection
+            of bird photographs captured in different places
+            around the world.
+          </p>
+
+          <p>
+            Every photograph tells a small story — the bird,
+            the place where it was found, and a moment that
+            caught my attention.
+          </p>
+
+          <p>
+            This website is created to share the beauty,
+            diversity and fascinating world of birds through
+            photography.
+          </p>
+
+        </div>
+
+        <div class="about-image">
+
+          <img
+            src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1200&q=85"
+            alt="Bird in nature"
+          >
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       LOCATIONS
+  ========================== -->
+
+  <section class="locations" id="locations">
+
+    <div class="container">
+
+      <div class="section-heading">
+
+        <div>
+          <h2>Places I've Explored</h2>
+          <div class="underline"></div>
+        </div>
+
+        <p>
+          Different places, different habitats,
+          and countless beautiful birds.
+        </p>
+
+      </div>
+
+      <div class="location-list">
+
+        <div class="location">🇮🇳 India</div>
+        <div class="location">🇦🇪 UAE</div>
+        <div class="location">🇱🇰 Sri Lanka</div>
+        <div class="location">🇹🇭 Thailand</div>
+        <div class="location">🇲🇾 Malaysia</div>
+        <div class="location">🌍 More to come...</div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       CONTACT
+  ========================== -->
+
+  <section class="contact" id="contact">
+
+    <div class="container">
+
+      <h2>Let's Connect</h2>
+
+      <p>
+        Follow the journey and discover more birds
+        through my photography.
+      </p>
+
+      <a href="#" onclick="return false;">
+        Instagram
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       FOOTER
+  ========================== -->
+
+  <footer>
+
+    © 2026 Birds Through My Lens ·
+    Bird Photography & Nature
+
+  </footer>
+
+
+  <!-- =========================
+       JAVASCRIPT
+  ========================== -->
+
+  <script>
+
+    function filterBirds(region, button) {
+
+      const cards = document.querySelectorAll(".bird-card");
+      const buttons = document.querySelectorAll(".filter-btn");
+
+      buttons.forEach(function(btn) {
+        btn.classList.remove("active");
+      });
+
+      button.classList.add("active");
+
+      cards.forEach(function(card) {
+
+        if (region === "all") {
+          card.style.display = "block";
+        }
+        else if (card.dataset.region === region) {
+          card.style.display = "block";
+        }
+        else {
+          card.style.display = "none";
+        }
+
+      });
+
+    }
+
+
+    function searchBirds() {
+
+      const search =
+        document.getElementById("search").value.toLowerCase();
+
+      const cards =
+        document.querySelectorAll(".bird-card");
+
+      cards.forEach(function(card) {
+
+        const text =
+          card.innerText.toLowerCase();
+
+        if (text.includes(search)) {
+          card.style.display = "block";
+        }
+        else {
+          card.style.display = "none";
+        }
+
+      });
+
+    }
+
+  </script>
+
+</body>
+</html>

@@ -1036,28 +1036,19 @@
 
 
     function searchBirds() {
+    const search = document.getElementById("search").value.toLowerCase().trim();
+    const cards = document.querySelectorAll(".bird-card");
 
-      const search =
-        document.getElementById("search").value.toLowerCase();
+    cards.forEach(function(card) {
+        const text = card.innerText.toLowerCase();
 
-      const cards =
-        document.querySelectorAll(".bird-card");
-
-      cards.forEach(function(card) {
-
-        const text =
-          card.innerText.toLowerCase();
-
-        if (text.includes(search)) {
-          card.style.display = "block";
+        if (search === "" || text.includes(search)) {
+            card.style.display = "";
+        } else {
+            card.style.display = "none";
         }
-        else {
-          card.style.display = "none";
-        }
-
-      });
-
-    }
+    });
+}
 
   </script>
 
